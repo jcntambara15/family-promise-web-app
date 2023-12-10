@@ -34,6 +34,11 @@ namespace FamilyPromiseApp.Models
         [Display(Name = "Substance Issues")]
         public string SubstanceIss { get; set; }
 
+        [Display(Name = "Have you ever lived in a shelter before?")]
+        public string ShelterBefore { get; set; }
+
+        [Display(Name = "Income source: state the amount and if you are currently receiving, applied for, or received in past employment: TANF, social security, SSI/SSDI, unemployment benefits, Workers comp, Veterans benefits     ")]
+        public string ShelterBefore { get; set; }
 
         [Display(Name = "Referral taken by:")]
         public string TakenByNow { get; set; }
