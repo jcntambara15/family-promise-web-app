@@ -33,7 +33,7 @@
             </div>
             <h4>Adults</h4>
             <hr />
-            <div class="form-group AdultQuestions">
+            <div class="form-group AdultQuestions" id="adultNumber">
                 <label asp-for="IntakeModel.AdultNum" class="control-label"></label>
                 <input asp-for="IntakeModel.AdultNum" class="form-control" />
                 <span asp-validation-for="IntakeModel.AdultNum" class="text-danger"></span>
@@ -112,14 +112,6 @@
                 <label asp-for="IntakeModel.Race" class="control-label"></label>
                 <input asp-for="IntakeModel.Race" class="form-control" />
                 <span asp-validation-for="IntakeModel.Race" class="text-danger"></span>
-            </div>
-            <div class="form-group AdultQuestions">
-                <label asp-for="IntakeModel.Transportation" class="control-label"></label>
-                @Html.DropDownListFor(model => model.IntakeModel.Transportation,
-                                      new SelectList(Enum.GetValues(typeof(Models.Transportation))),
-                                      "Select",
-                                      new { @class = "form-select", id = "TransportationDropdown" })
-                <span asp-validation-for="IntakeModel.Transportation" class="text-danger"></span>
             </div>
             <div class="form-group transportationquest">
                 <label asp-for="IntakeModel.Transportation1" class="control-label"></label>
@@ -374,10 +366,10 @@
             
             <!--Function for hiding forms if no is selected-->
             <script>      
-                function generateAdults(AdultNumber) {
+                function generateAdults(AdultNum) {
                 document.getElementById('additionalAdults').innerHTML = '';
                     console.log("Generating adults...");
-                    for (var i = 2; i <= AdultNumber; i++) {
+                    for (var i = 2; i <= AdultNum; i++) {
                         var sectionHtml = `
                             <h4> Adult ${i} Information </h4>
                             <div class="form-group AdultQuestions">
@@ -500,14 +492,14 @@
                                 <input asp-for="IntakeModel.Unemployed" class="form-control" />
                                 <span asp-validation-for="IntakeModel.Unemployed" class="text-danger"></span>
                             </div>
-                            <div class="form-group Adult Questions">
+                            @* <div class="form-group Adult Questions">
                                 <label asp-for="IntakeModel.Fired" class="control-label">${i} Fired:</label>
                                 @Html.DropDownListFor(model => model.IntakeModel.Fired,
                                                     new SelectList(Enum.GetValues(typeof(Models.Fired))),
                                                     "Select",
                                                     new { @class = "form-select", id = "FiredDropdown" })
                                 <span asp-validation-for="IntakeModel.Fired" class="text-danger"></span>
-                            </div>
+                            </div> *@
                             <div class="form-group AdultQuestions">
                                 <label asp-for="IntakeModel.LengthOfEmploy" class="control-label">${i} Employment Length:</label>
                                 <input asp-for="IntakeModel.LengthOfEmploy" class="form-control" />
@@ -564,16 +556,16 @@
                                 <span asp-validation-for="IntakeModel.FatherChild" class="text-danger"></span>
                             </div>`;
                         console.log("I " +i);
-                        console.log("Number of Adults " +AdultNumber);
+                        console.log("Number of Adults " +AdultNum);
                         document.getElementById('additionalAdults').insertAdjacentHTML('beforeend', sectionHtml);
                     }
                 }
-                $('#houseHoldNumber input').on('input', function () {
+                $('#adultNumber input').on('input', function () {
                     var enteredNum = parseInt($(this).val(), 10) || 1;
                     console.log("Entered Number: " + enteredNum);
                     generateAdults(enteredNum);
                 });
-                generateAdults(document.querySelector('#houseHoldNumber input').value);
+                generateAdults(document.querySelector('#adultNumber input').value);
                 
             </script>
             
