@@ -143,8 +143,15 @@ namespace FamilyPromiseApp.Models
         [Display(Name = "Gender Identity")]
         public string ChildGender { get; set; }
 
-        [Display(Name = "Do you own any methods of transportation? If so, how many? What is the make/model/year? What is/are the license plate(s)?")]
-        public string Transportation { get; set; }
+        [Display(Name = "Do you own any methods of transportation? If so, how many? ")]
+        public int Transportation { get; set; }
+
+        [Display(Name = "What is/are the make/model/year(s)?")]
+        public string Transportation2 { get; set; }
+
+        [Display(Name = "What is/are the license plate(s)?")]
+        public string Transportation3 { get; set; }
+
         public string FirstName { get; set; }
         [Column("First Name")]
         [Display(Name = "First Name")]
