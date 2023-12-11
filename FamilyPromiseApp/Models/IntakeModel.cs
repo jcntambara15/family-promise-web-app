@@ -11,6 +11,14 @@ namespace FamilyPromiseApp.Models
     {
         Yes, No
     }
+    public enum Transportation
+    {
+        Yes, No
+    }
+    public enum Bankruptcy
+    {
+        Yes, No
+    }
     public enum Fired
     {
         Yes, No
@@ -41,9 +49,9 @@ namespace FamilyPromiseApp.Models
         [Display(Name = "Have you ever lived in a shelter before?")]
         public string ShelterBefore { get; set; }
 
-        [Display(Name = "Income source: state the amount and if you are currently receiving, applied for, or received in past employment: TANF, Social Security, SSI/SSDI, Unemployment Benefits, Workers Compensation, Veterans Benefits, Food Stamps, Child Support, Vocational Rehab, Health Department, Medicaid, Child care, Public housing, Employment Assistance, Child Support-CSE, Child Support- Direct, Mental Health Services, CHANPUS, other")]
+        [Display(Name = "Income Source: State the amount and if you are currently receiving, applied for, or received in past employment: TANF, Social Security, SSI/SSDI, Unemployment Benefits, Workers Compensation, Veterans Benefits, Food Stamps, Child Support, Vocational Rehab, Health Department, Medicaid, Child Care, Public housing, Employment Assistance, Child Support-CSE, Child Support- Direct, Mental Health Services, CHANPUS, Other")]
         public string Income { get; set; }
-        [Display(Name = "Do you live alone with chidren or the father of your children? If so, explain.")]
+        [Display(Name = "Do you live alone with children or the father of your children? If so, explain.")]
         public string FatherChild { get; set; }
 
         [Display(Name = "Gender Identity")]
@@ -99,14 +107,12 @@ namespace FamilyPromiseApp.Models
 
         [Display(Name = "What is their email?")]
         public string ParoleEmail { get; set;}
-        
-
 
         [Display(Name = "Are you employed? If so, where?")]
         public string EmployedWhere { get; set;}
 
         [Display(Name = "Has the family ever filed for bankruptcy?")]
-        public string Bankruptcy { get; set;}
+        public Bankruptcy? Bankruptcy { get; set;}
 
         [Display(Name = "Employment/Income")]
         public string IsEmployed { get; set; }
@@ -117,13 +123,11 @@ namespace FamilyPromiseApp.Models
         [Display(Name = "Relationship")]
         public string Relationships { get; set; }
 
-
         [Display(Name = "Were you or are you a part of the Work Study Program?")]
         public string WorkStudy { get; set; }
 
         [Display(Name = "How many adults?")]
         public int AdultNum { get; set; }
-
         
         [Display(Name = "SSN")]
         public int SSN { get; set; }
@@ -143,8 +147,9 @@ namespace FamilyPromiseApp.Models
         [Display(Name = "Gender Identity")]
         public string ChildGender { get; set; }
 
-        [Display(Name = "Do you own any methods of transportation? If so, how many? ")]
-        public int Transportation { get; set; }
+        [Display(Name = "How many?")]
+
+        public int Transportation1 { get; set; }
 
         [Display(Name = "What is/are the make/model/year(s)?")]
         public string Transportation2 { get; set; }
@@ -152,9 +157,9 @@ namespace FamilyPromiseApp.Models
         [Display(Name = "What is/are the license plate(s)?")]
         public string Transportation3 { get; set; }
 
-        public string FirstName { get; set; }
-        [Column("First Name")]
         [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
 
         public string FirstMidName { get; set; }
         [Display(Name = "Marital Status- if so, where are they located?")]
@@ -162,6 +167,9 @@ namespace FamilyPromiseApp.Models
 
         [Display(Name = "Are any children in school? If so, where and what grade?")]
         public string ChildSchool { get; set; }
+
+        [Display(Name = "Are you or have you ever been involved in the Department for Children and Families (DCF)? Explain. ")]
+        public string DCF { get; set; }
 
         [Display(Name = "First Name")]
         public string EmergencyFirst { get; set; }
@@ -171,23 +179,15 @@ namespace FamilyPromiseApp.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         
-
-        [Display(Name = "Are you or have you ever been involved in the Department for Children and Families (DCF)? Explain. ")]
-        public string DCF { get; set; }
-        
         [Display(Name = "Date Admitted")]
         public int DateAdmitted { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         
-
-
-        
         [Display(Name = "Completion Date")]
         public int CompletionDate { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        
         
         [Display(Name = "Date of Birth")]
         public DateTime DOB { get; set; }
@@ -209,6 +209,9 @@ namespace FamilyPromiseApp.Models
         
         [Display(Name = "Are there any additional adults in the household?")]
         public AnyHouseHold? HouseHoldMemberExists { get; set; }
+
+        [Display(Name = "Do you own any forms of transportation? ")]
+        public Transportation? Transportation { get; set; }
 
         [Display(Name = "Name")]
         public string AdultName { get; set; }
