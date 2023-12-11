@@ -31,6 +31,10 @@ namespace FamilyPromiseApp.Models
         // public int CaseID { get; set; }
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
+
+        [Display(Name = "Last Name")]
+        public string EmergencyLast { get; set; }
+
         [Display(Name = "Substance Issues")]
         public string SubstanceIss { get; set; }
 
@@ -145,8 +149,10 @@ namespace FamilyPromiseApp.Models
         [Display(Name = "Do you own any methods of transportation? If so, how many? What is the make/model/year? What is/are the license plate(s)?")]
         public string Transportation { get; set; }
 
+        
+
         public string FirstName { get; set; }
-        [Column("First Name")]
+        // [Column("First Name")]
         [Display(Name = "First Name")]
 
         public string FirstMidName { get; set; }
@@ -155,6 +161,9 @@ namespace FamilyPromiseApp.Models
 
         [Display(Name = "Are any children in school? If so, where and what grade?")]
         public string ChildSchool { get; set; }
+
+        [Display(Name = "First Name")]
+        public string EmergencyFirst { get; set; }
 
         [Display(Name = "Age")]
         public int Age { get; set; }
