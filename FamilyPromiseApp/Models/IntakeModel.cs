@@ -64,6 +64,20 @@ namespace FamilyPromiseApp.Models
 
         [Display(Name = "Referring Agency / Source:")]
         public string ReferralAgency { get; set;}
+        [Display(Name = "What is their phone number?")]
+        public string EmployerPhone { get; set;}
+
+        [Display(Name = "What is the job description? Are you full-time / part-time / day laborer / temp?")]
+        public string JobDescription { get; set;}
+
+        [Display(Name = "If unemployed, what keeps you from working?")]
+        public string Unemployed { get; set;}
+
+
+
+        [Display(Name = "Are you employed? If so, where?")]
+        public string EmployedWhere { get; set;}
+
         [Display(Name = "Has the family ever filed for bankruptcy?")]
         public string Bankruptcy { get; set;}
 
