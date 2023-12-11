@@ -37,8 +37,17 @@ namespace FamilyPromiseApp.Models
         [Display(Name = "Have you ever lived in a shelter before?")]
         public string ShelterBefore { get; set; }
 
-        [Display(Name = "Income source: state the amount and if you are currently receiving, applied for, or received in past employment: TANF, social security, SSI/SSDI, unemployment benefits, Workers comp, Veterans benefits     ")]
-        public string ShelterBefore { get; set; }
+        [Display(Name = "Income source: state the amount and if you are currently receiving, applied for, or received in past employment: TANF, social security, SSI/SSDI, unemployment benefits, Workers comp, Veterans benefits, Food stamps, Child support, Vocational rehab, Health department, Medicaid, Child care, Public housing, Employment assistance, Child support-CSE, child support- direct, Mental health services, CHANPUS, other")]
+        public string Income { get; set; }
+        [Display(Name = "Do you live alone with chidren or the father of your children? If so, explain.")]
+        public string FatherChild { get; set; }
+
+
+        [Display(Name = "Gender Identity?")]
+        public string Gender { get; set; }
+
+
+
 
         [Display(Name = "Referral taken by:")]
         public string TakenByNow { get; set; }
@@ -53,11 +62,10 @@ namespace FamilyPromiseApp.Models
         [Display(Name = "If over 16: Highest Form of Education: High School Dropout, High School, GED, Started College, Completed Degree, Post High School Vocational Completion, etc.")]
         public string Education { get; set; }
 
-        [Display(Name = "Transportation Method")]
-        public string TransportMethod { get; set; }
-
         [Display(Name = "Referring Agency / Source:")]
         public string ReferralAgency { get; set;}
+        [Display(Name = "Has the family ever filed for bankruptcy?")]
+        public string Bankruptcy { get; set;}
 
         [Display(Name = "Employment/Income")]
         public string IsEmployed { get; set; }
@@ -92,7 +100,10 @@ namespace FamilyPromiseApp.Models
         public string Race { get; set; }
 
         [Display(Name = "Gender Identity")]
-        public string Gender { get; set; }
+        public string ChildGender { get; set; }
+
+        [Display(Name = "Do you own any methods of transportation? If so, how many? What is the make/model/year? What is/are the license plate(s)?")]
+        public string Transportation { get; set; }
 
         public string FirstName { get; set; }
         [Column("FirstName")]
