@@ -10,17 +10,12 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
  
 
-<h4>IntakeModel</h4>
+<h4>Intake Form</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="IntakeModel.AdultNum" class="control-label"></label>
-                <input asp-for="IntakeModel.AdultNum" class="form-control" />
-                <span asp-validation-for="IntakeModel.AdultNum" class="text-danger"></span>
-            </div>
             <div class="form-group">
                 <label asp-for="IntakeModel.DateAdmitted" class="control-label"></label>
                 <input asp-for="IntakeModel.DateAdmitted" class="form-control" />
@@ -38,6 +33,11 @@
             </div>
             <h4>Adults</h4>
             <hr />
+            <div class="form-group">
+                <label asp-for="IntakeModel.AdultNum" class="control-label"></label>
+                <input asp-for="IntakeModel.AdultNum" class="form-control" />
+                <span asp-validation-for="IntakeModel.AdultNum" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="IntakeModel.LastName" class="control-label"></label>
                 <input asp-for="IntakeModel.LastName" class="form-control" />
@@ -63,7 +63,7 @@
                 <input asp-for="IntakeModel.MaritalStatus" class="form-control" />
                 <span asp-validation-for="IntakeModel.MaritalStatus" class="text-danger"></span>
             </div>
-            <h4>ID Submission Here</h4>
+            <h3>ID Submission Here</h3>
             <div class="form-group">
                 <label asp-for="IntakeModel.IDNum" class="control-label"></label>
                 <input asp-for="IntakeModel.IDNum" class="form-control" />
@@ -113,14 +113,24 @@
                 <span asp-validation-for="IntakeModel.Race" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="IntakeModel.ChildNum" class="control-label"></label>
+                <input asp-for="IntakeModel.ChildNum" class="form-control" />
+                <span asp-validation-for="IntakeModel.ChildNum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="IntakeModel.ChildSchool" class="control-label"></label>
                 <input asp-for="IntakeModel.ChildSchool" class="form-control" />
                 <span asp-validation-for="IntakeModel.ChildSchool" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="IntakeModel.Gender" class="control-label"></label>
-                <input asp-for="IntakeModel.Gender" class="form-control" />
-                <span asp-validation-for="IntakeModel.Gender" class="text-danger"></span>
+                <label asp-for="IntakeModel.ChildGender" class="control-label"></label>
+                <input asp-for="IntakeModel.ChildGender" class="form-control" />
+                <span asp-validation-for="IntakeModel.ChildGender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntakeModel.Transportation" class="control-label"></label>
+                <input asp-for="IntakeModel.Transportation" class="form-control" />
+                <span asp-validation-for="IntakeModel.Transportation" class="text-danger"></span>
             </div>
             <div class="col-md-12"></div>
             <h4>Previous Living Situation</h4>
@@ -162,11 +172,6 @@
                 <span asp-validation-for="IntakeModel.IsEmployed" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="IntakeModel.TransportMethod" class="control-label"></label>
-                <input asp-for="IntakeModel.TransportMethod" class="form-control" />
-                <span asp-validation-for="IntakeModel.TransportMethod" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="IntakeModel.SubstanceIss" class="control-label"></label>
                 <input asp-for="IntakeModel.SubstanceIss" class="form-control" />
                 <span asp-validation-for="IntakeModel.SubstanceIss" class="text-danger"></span>
@@ -174,14 +179,14 @@
             <h4>Emergency Contact</h4>
             <hr />
             <div class="form-group">
-                <label asp-for="IntakeModel.LastName" class="control-label"></label>
-                <input asp-for="IntakeModel.LastName" class="form-control" />
-                <span asp-validation-for="IntakeModel.LastName" class="text-danger"></span>
+                <label asp-for="IntakeModel.EmergencyLast" class="control-label"></label>
+                <input asp-for="IntakeModel.EmergencyLast" class="form-control" />
+                <span asp-validation-for="IntakeModel.EmergencyLast" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="IntakeModel.FirstName" class="control-label"></label>
-                <input asp-for="IntakeModel.FirstName" class="form-control" />
-                <span asp-validation-for="IntakeModel.FirstName" class="text-danger"></span>
+                <label asp-for="IntakeModel.EmergencyFirst" class="control-label"></label>
+                <input asp-for="IntakeModel.EmergencyFirst" class="form-control" />
+                <span asp-validation-for="IntakeModel.EmergencyFirst" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="IntakeModel.CellPhoneNum" class="control-label"></label>
@@ -202,6 +207,122 @@
                 <label asp-for="IntakeModel.Relationships" class="control-label"></label>
                 <input asp-for="IntakeModel.Relationships" class="form-control" />
                 <span asp-validation-for="IntakeModel.Relationships" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntakeModel.ShelterBefore" class="control-label"></label>
+                <input asp-for="IntakeModel.ShelterBefore" class="form-control" />
+                <span asp-validation-for="IntakeModel.ShelterBefore" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="form-group">
+                <label asp-for="IntakeModel.EmployedWhere" class="control-label"></label>
+                <input asp-for="IntakeModel.EmployedWhere" class="form-control" />
+                <span asp-validation-for="IntakeModel.EmployedWhere" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntakeModel.EmployerPhone" class="control-label"></label>
+                <input asp-for="IntakeModel.EmployerPhone" class="form-control" />
+                <span asp-validation-for="IntakeModel.EmployerPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntakeModel.JobDescription" class="control-label"></label>
+                <input asp-for="IntakeModel.JobDescription" class="form-control" />
+                <span asp-validation-for="IntakeModel.JobDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntakeModel.Unemployed" class="control-label"></label>
+                <input asp-for="IntakeModel.Unemployed" class="form-control" />
+                <span asp-validation-for="IntakeModel.Unemployed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntakeModel.Fired" class="control-label"></label>
+                <input asp-for="IntakeModel.Fired" class="form-control" />
+                <span asp-validation-for="IntakeModel.Fired" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntakeModel.LengthOfEmploy" class="control-label"></label>
+                <input asp-for="IntakeModel.LengthOfEmploy" class="form-control" />
+                <span asp-validation-for="IntakeModel.LengthOfEmploy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntakeModel.Skills" class="control-label"></label>
+                <input asp-for="IntakeModel.Skills" class="form-control" />
+                <span asp-validation-for="IntakeModel.Skills" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntakeModel.FatherChild" class="control-label"></label>
+                <input asp-for="IntakeModel.FatherChild" class="form-control" />
+                <span asp-validation-for="IntakeModel.FatherChild" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntakeModel.Income" class="control-label"></label>
+                <input asp-for="IntakeModel.Income" class="form-control" />
+                <span asp-validation-for="IntakeModel.Income" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntakeModel.Bankruptcy" class="control-label"></label>
+                <input asp-for="IntakeModel.Bankruptcy" class="form-control" />
+                <span asp-validation-for="IntakeModel.Bankruptcy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntakeModel.FatherChild" class="control-label"></label>
+                <input asp-for="IntakeModel.FatherChild" class="form-control" />
+                <span asp-validation-for="IntakeModel.FatherChild" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntakeModel.Gender" class="control-label"></label>
+                <input asp-for="IntakeModel.Gender" class="form-control" />
+                <span asp-validation-for="IntakeModel.Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntakeModel.Arrest" class="control-label"></label>
+                <input asp-for="IntakeModel.Arrest" class="form-control" />
+                <span asp-validation-for="IntakeModel.Arrest" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntakeModel.ArrestLoc" class="control-label"></label>
+                <input asp-for="IntakeModel.ArrestLoc" class="form-control" />
+                <span asp-validation-for="IntakeModel.ArrestLoc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntakeModel.Convictions" class="control-label"></label>
+                <input asp-for="IntakeModel.Convictions" class="form-control" />
+                <span asp-validation-for="IntakeModel.Convictions" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntakeModel.Parole" class="control-label"></label>
+                <input asp-for="IntakeModel.Parole" class="form-control" />
+                <span asp-validation-for="IntakeModel.Parole" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntakeModel.ParolePhone" class="control-label"></label>
+                <input asp-for="IntakeModel.ParolePhone" class="form-control" />
+                <span asp-validation-for="IntakeModel.ParolePhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntakeModel.ParoleEmail" class="control-label"></label>
+                <input asp-for="IntakeModel.ParoleEmail" class="form-control" />
+                <span asp-validation-for="IntakeModel.ParoleEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntakeModel.DCF" class="control-label"></label>
+                <input asp-for="IntakeModel.DCF" class="form-control" />
+                <span asp-validation-for="IntakeModel.DCF" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntakeModel.SubstanceAbuse" class="control-label"></label>
+                <input asp-for="IntakeModel.SubstanceAbuse" class="form-control" />
+                <span asp-validation-for="IntakeModel.SubstanceAbuse" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntakeModel.Assets" class="control-label"></label>
+                <input asp-for="IntakeModel.Assets" class="form-control" />
+                <span asp-validation-for="IntakeModel.Assets" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntakeModel.Debts" class="control-label"></label>
+                <input asp-for="IntakeModel.Debts" class="form-control" />
+                <span asp-validation-for="IntakeModel.Debts" class="text-danger"></span>
             </div>
             <h4>Case Information</h4>
             <hr />
