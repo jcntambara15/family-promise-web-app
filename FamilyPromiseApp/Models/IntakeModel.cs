@@ -73,6 +73,32 @@ namespace FamilyPromiseApp.Models
         [Display(Name = "If unemployed, what keeps you from working?")]
         public string Unemployed { get; set;}
 
+        [Display(Name = "Have you ever been terminated from a job?")]
+        public string Fired { get; set;}
+
+        [Display(Name = "What is your longest length of employment?")]
+        public string LengthOfEmploy { get; set;}
+
+        [Display(Name = "What skills do you have?")]
+        public string Skills { get; set;}
+
+        [Display(Name = "Have you ever been arrested? If so, what were/are your charges? Are any still pending? On what day(s)?")]
+        public string Arrest { get; set;}
+
+        [Display(Name = "Where were you arrested?")]
+        public string ArrestLoc { get; set;}
+
+        [Display(Name = "Do you have any convictions? On what day(s)?")]
+        public string Convictions { get; set;}
+        [Display(Name = "Who is your parole officer?")]
+        public string Parole { get; set;}
+
+        [Display(Name = "What is their phone number?")]
+        public string ParolePhone { get; set;}
+
+        [Display(Name = "What is their email?")]
+        public string ParoleEmail { get; set;}
+        
 
 
         [Display(Name = "Are you employed? If so, where?")]
