@@ -100,10 +100,7 @@
             </div>
             <div class="form-group AdultQuestions">
                 <label asp-for="IntakeModel.WorkStudy" class="control-label"></label>
-                @Html.DropDownListFor(model => model.IntakeModel.WorkStudy,
-                                      new SelectList(Enum.GetValues(typeof(Models.WorkStudy))),
-                                      "Select",
-                                      new { @class = "form-select", id = "WorkStudyDropdown" })
+                <input asp-for="IntakeModel.WorkStudy" class="form-control" />
                 <span asp-validation-for="IntakeModel.WorkStudy" class="text-danger"></span>
             </div>
             <div class="form-group AdultQuestions">
@@ -376,236 +373,207 @@
             
             
             <!--Function for hiding forms if no is selected-->
-            <script>
-                $(document).ready(function () {
-                    $("#TransportationDropdown").change(function () {
-                        var selectedValue = $(this).val();
-                        $(".transportationquest").hide();
- 
-                        if (selectedValue.toLowerCase() === 'yes') {
-                            $(".transportationquest").show();
-                            $(".transportationquest input").prop("disabled", false);
-                            $(".transportationquest input").prop("required", true);
-                        } else {
-                            $(".transportationquest input").prop("disabled", true);
-                            $(".transportationquest input").prop("required", false);
-                        }
-
-                    });
-                });
-
-                  
-            function generateAdults(AdultNumber) {
-            document.getElementById('additionalAdults').innerHTML = '';
-                console.log("Generating adults...");
-                for (var i = 2; i <= AdultNumber; i++) {
-                    var sectionHtml = `
-                        <h4> Adult ${i} Information </h4>
-                        <div class="form-group AdultQuestions">
-                           <label asp-for="Intake.LastName" class="control-label">Adult ${i} Last Name:</label>
-                            <input asp-for="Intake.LastName" class="form-control" />
-                            <span asp-validation-for="Intake.LastName" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="Intake.FirstName" class="control-label">Adult ${i} First Name:</label>
-                            <input asp-for="Intake.FirstName" class="form-control" type="number" />
-                            <span asp-validation-for="Intake.FirstName" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.Age" class="control-label">Adult ${i} Age:</label>
-                            <input asp-for="IntakeModel.Age" class="form-control" />
-                            <span asp-validation-for="IntakeModel.Age" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.DOB" class="control-label">Adult ${i} Work Phone:</label>
-                            <input asp-for="IntakeModel.DOB" class="form-control" />
-                            <span asp-validation-for="IntakeModel.DOB" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="Person.AdultEmail" class="control-label">Adult ${i} Email Adress:</label>
-                            <input asp-for="Person.AdultEmail" class="form-control" />
-                            <span asp-validation-for="Person.AdultEmail" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                           <label asp-for="IntakeModel.Gender" class="control-label">Adult ${i} Gender:</label>
-                            <input asp-for="IntakeModel.Gender" class="form-control" />
-                            <span asp-validation-for="IntakeModel.Gender" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.MaritalStatus" class="control-label">Adult ${i} Marital Status:</label>
-                            <input asp-for="IntakeModel.Gender" class="form-control" type="date"/>
-                            <span asp-validation-for="IntakeModel.Gender" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.IDNum" class="control-label">Adult ${i} ID Num:</label>
-                            <input asp-for="IntakeModel.IDNum" class="form-control" />
-                            <span asp-validation-for="IntakeModel.IDNum" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                        <label asp-for="IntakeModel.CellPhoneNum" class="control-label">Adult ${i} Cell Phone Number:</label>
-                        <input asp-for="IntakeModel.CellPhoneNum" class="form-control" />
-                        <span asp-validation-for="IntakeModel.CellPhoneNum" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.WorkPhoneNum" class="control-label">${i} Work Phone Number:</label>
-                            <input asp-for="IntakeModel.WorkPhoneNum" class="form-control" />
-                            <span asp-validation-for="IntakeModel.WorkPhoneNum" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.EmailAdd" class="control-label">${i} Email:</label>
-                            <input asp-for="IntakeModel.EmailAdd" class="form-control" />
-                            <span asp-validation-for="IntakeModel.EmailAdd" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.HomeAddress" class="control-label">${i} Home Address:</label>
-                            <input asp-for="IntakeModel.HomeAddress" class="form-control" />
-                            <span asp-validation-for="IntakeModel.HomeAddress" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.Education" class="control-label">${i} Education:</label>
-                            <input asp-for="IntakeModel.Education" class="form-control" />
-                            <span asp-validation-for="IntakeModel.Education" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.WorkStudy" class="control-label">${i} Work Study:</label>
-                            @Html.DropDownListFor(model => model.IntakeModel.WorkStudy,
-                                                new SelectList(Enum.GetValues(typeof(Models.WorkStudy))),
-                                                "Select",
-                                                new { @class = "form-select", id = "WorkStudyDropdown" })
-                            <span asp-validation-for="IntakeModel.WorkStudy" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.SSN" class="control-label">${i} SSN:</label>
-                            <input asp-for="IntakeModel.SSN" class="form-control" />
-                            <span asp-validation-for="IntakeModel.SSN" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.Race" class="control-label">${i} Race:</label>
-                            <input asp-for="IntakeModel.Race" class="form-control" />
-                            <span asp-validation-for="IntakeModel.Race" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.Transportation" class="control-label">${i} Transportation:</label>
-                            @Html.DropDownListFor(model => model.IntakeModel.Transportation,
-                                                new SelectList(Enum.GetValues(typeof(Models.Transportation))),
-                                                "Select",
-                                                new { @class = "form-select", id = "TransportationDropdown" })
-                            <span asp-validation-for="IntakeModel.Transportation" class="text-danger"></span>
-                        </div>
-                        <div class="form-group transportationquest">
-                            <label asp-for="IntakeModel.Transportation1" class="control-label">${i} Transportation1:</label>
-                            <input asp-for="IntakeModel.Transportation1" class="form-control" />
-                            <span asp-validation-for="IntakeModel.Transportation1" class="text-danger"></span>
-                        </div>
-                        <div class="form-group transportationquest">
-                            <label asp-for="IntakeModel.Transportation2" class="control-label">${i} Transportation2:</label>
-                            <input asp-for="IntakeModel.Transportation2" class="form-control" />
-                            <span asp-validation-for="IntakeModel.Transportation2" class="text-danger"></span>
-                        </div>
-                        <div class="form-group transportationquest">
-                            <label asp-for="IntakeModel.Transportation3" class="control-label">${i} Transportation3:</label>
-                            <input asp-for="IntakeModel.Transportation3" class="form-control" />
-                            <span asp-validation-for="IntakeModel.Transportation3" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.IsEmployed" class="control-label">${i} Employed:</label>
-                            <input asp-for="IntakeModel.IsEmployed" class="form-control" />
-                            <span asp-validation-for="IntakeModel.IsEmployed" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.EmployedWhere" class="control-label">${i} Where Employed:</label>
-                            <input asp-for="IntakeModel.EmployedWhere" class="form-control" />
-                            <span asp-validation-for="IntakeModel.EmployedWhere" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.EmployerPhone" class="control-label">${i} Employer Phone:</label>
-                            <input asp-for="IntakeModel.EmployerPhone" class="form-control" />
-                            <span asp-validation-for="IntakeModel.EmployerPhone" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.JobDescription" class="control-label">${i} Job Description:</label>
-                            <input asp-for="IntakeModel.JobDescription" class="form-control" />
-                            <span asp-validation-for="IntakeModel.JobDescription" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.Unemployed" class="control-label">${i} Unemployed:</label>
-                            <input asp-for="IntakeModel.Unemployed" class="form-control" />
-                            <span asp-validation-for="IntakeModel.Unemployed" class="text-danger"></span>
-                        </div>
-                        <div class="form-group Adult Questions">
-                            <label asp-for="IntakeModel.Fired" class="control-label">${i} Fired:</label>
-                            @Html.DropDownListFor(model => model.IntakeModel.Fired,
-                                                new SelectList(Enum.GetValues(typeof(Models.Fired))),
-                                                "Select",
-                                                new { @class = "form-select", id = "FiredDropdown" })
-                            <span asp-validation-for="IntakeModel.Fired" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.LengthOfEmploy" class="control-label">${i} Employment Length:</label>
-                            <input asp-for="IntakeModel.LengthOfEmploy" class="form-control" />
-                            <span asp-validation-for="IntakeModel.LengthOfEmploy" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.Skills" class="control-label">${i} Skills:</label>
-                            <input asp-for="IntakeModel.Skills" class="form-control" />
-                            <span asp-validation-for="IntakeModel.Skills" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.Income" class="control-label">${i} Income:</label>
-                            <input asp-for="IntakeModel.Income" class="form-control" />
-                            <span asp-validation-for="IntakeModel.Income" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.Arrest" class="control-label">${i} Arrest:</label>
-                            <input asp-for="IntakeModel.Arrest" class="form-control" />
-                            <span asp-validation-for="IntakeModel.Arrest" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.ArrestLoc" class="control-label">${i} Arrest Location:</label>
-                            <input asp-for="IntakeModel.ArrestLoc" class="form-control" />
-                            <span asp-validation-for="IntakeModel.ArrestLoc" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.Convictions" class="control-label">${i} Convictions:</label>
-                            <input asp-for="IntakeModel.Convictions" class="form-control" />
-                            <span asp-validation-for="IntakeModel.Convictions" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.Parole" class="control-label">${i} Parole:</label>
-                            <input asp-for="IntakeModel.Parole" class="form-control" />
-                            <span asp-validation-for="IntakeModel.Parole" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.ParolePhone" class="control-label">${i} Parole Phone:</label>
-                            <input asp-for="IntakeModel.ParolePhone" class="form-control" />
-                            <span asp-validation-for="IntakeModel.ParolePhone" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.ParoleEmail" class="control-label">${i} Parole Email:</label>
-                            <input asp-for="IntakeModel.ParoleEmail" class="form-control" />
-                            <span asp-validation-for="IntakeModel.ParoleEmail" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.SubstanceAbuse" class="control-label">${i} Substance Abuse:</label>
-                            <input asp-for="IntakeModel.SubstanceAbuse" class="form-control" />
-                            <span asp-validation-for="IntakeModel.SubstanceAbuse" class="text-danger"></span>
-                        </div>
-                        <div class="form-group AdultQuestions">
-                            <label asp-for="IntakeModel.FatherChild" class="control-label">${i} Father Child:</label>
-                            <input asp-for="IntakeModel.FatherChild" class="form-control" />
-                            <span asp-validation-for="IntakeModel.FatherChild" class="text-danger"></span>
-                        </div>`;
-                    console.log("I " +i);
-                    console.log("Number of Adults " +AdultNumber);
-                    document.getElementById('additionalAdults').insertAdjacentHTML('beforeend', sectionHtml);
+            <script>      
+                function generateAdults(AdultNumber) {
+                document.getElementById('additionalAdults').innerHTML = '';
+                    console.log("Generating adults...");
+                    for (var i = 2; i <= AdultNumber; i++) {
+                        var sectionHtml = `
+                            <h4> Adult ${i} Information </h4>
+                            <div class="form-group AdultQuestions">
+                            <label asp-for="Intake.LastName" class="control-label">Adult ${i} Last Name:</label>
+                                <input asp-for="Intake.LastName" class="form-control" />
+                                <span asp-validation-for="Intake.LastName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="Intake.FirstName" class="control-label">Adult ${i} First Name</label>
+                                <input asp-for="Intake.FirstName" class="form-control" type="number" />
+                                <span asp-validation-for="Intake.FirstName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="IntakeModel.Age" class="control-label">Adult ${i} Age</label>
+                                <input asp-for="IntakeModel.Age" class="form-control" />
+                                <span asp-validation-for="IntakeModel.Age" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="IntakeModel.DOB" class="control-label">Adult ${i} Work Phone</label>
+                                <input asp-for="IntakeModel.DOB" class="form-control" />
+                                <span asp-validation-for="IntakeModel.DOB" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="Person.AdultEmail" class="control-label">Adult ${i} Email Address</label>
+                                <input asp-for="Person.AdultEmail" class="form-control" />
+                                <span asp-validation-for="Person.AdultEmail" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                            <label asp-for="IntakeModel.Gender" class="control-label">Adult ${i} Gender</label>
+                                <input asp-for="IntakeModel.Gender" class="form-control" />
+                                <span asp-validation-for="IntakeModel.Gender" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="IntakeModel.MaritalStatus" class="control-label">Adult ${i} Marital Status</label>
+                                <input asp-for="IntakeModel.Gender" class="form-control" type="date"/>
+                                <span asp-validation-for="IntakeModel.Gender" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="IntakeModel.IDNum" class="control-label">Adult ${i} ID Num</label>
+                                <input asp-for="IntakeModel.IDNum" class="form-control" />
+                                <span asp-validation-for="IntakeModel.IDNum" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                            <label asp-for="IntakeModel.CellPhoneNum" class="control-label">Adult ${i} Cell Phone Number</label>
+                            <input asp-for="IntakeModel.CellPhoneNum" class="form-control" />
+                            <span asp-validation-for="IntakeModel.CellPhoneNum" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="IntakeModel.WorkPhoneNum" class="control-label">${i} Work Phone Number</label>
+                                <input asp-for="IntakeModel.WorkPhoneNum" class="form-control" />
+                                <span asp-validation-for="IntakeModel.WorkPhoneNum" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="IntakeModel.EmailAdd" class="control-label">${i} Email</label>
+                                <input asp-for="IntakeModel.EmailAdd" class="form-control" />
+                                <span asp-validation-for="IntakeModel.EmailAdd" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="IntakeModel.HomeAddress" class="control-label">${i} Home Address:</label>
+                                <input asp-for="IntakeModel.HomeAddress" class="form-control" />
+                                <span asp-validation-for="IntakeModel.HomeAddress" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="IntakeModel.Education" class="control-label">${i} If over 16: Highest Form of Education: High School Dropout, High School, GED, Started College, Completed Degree, Post High School Vocational Completion, etc.</label>
+                                <input asp-for="IntakeModel.Education" class="form-control" />
+                                <span asp-validation-for="IntakeModel.Education" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="IntakeModel.WorkStudy" class="control-label">${i} Were you or are you a part of the Work Study Program?</label>
+                                <input asp-for="IntakeModel.WorkStudy" class="form-control" />
+                                <span asp-validation-for="IntakeModel.WorkStudy" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="IntakeModel.SSN" class="control-label">${i} SSN</label>
+                                <input asp-for="IntakeModel.SSN" class="form-control" />
+                                <span asp-validation-for="IntakeModel.SSN" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="IntakeModel.Race" class="control-label">${i} Race</label>
+                                <input asp-for="IntakeModel.Race" class="form-control" />
+                                <span asp-validation-for="IntakeModel.Race" class="text-danger"></span>
+                            </div>
+                            <div class="form-group transportationquest">
+                                <label asp-for="IntakeModel.Transportation1" class="control-label">${i} Transportation1:</label>
+                                <input asp-for="IntakeModel.Transportation1" class="form-control" />
+                                <span asp-validation-for="IntakeModel.Transportation1" class="text-danger"></span>
+                            </div>
+                            <div class="form-group transportationquest">
+                                <label asp-for="IntakeModel.Transportation2" class="control-label">${i} Transportation2:</label>
+                                <input asp-for="IntakeModel.Transportation2" class="form-control" />
+                                <span asp-validation-for="IntakeModel.Transportation2" class="text-danger"></span>
+                            </div>
+                            <div class="form-group transportationquest">
+                                <label asp-for="IntakeModel.Transportation3" class="control-label">${i} Transportation3:</label>
+                                <input asp-for="IntakeModel.Transportation3" class="form-control" />
+                                <span asp-validation-for="IntakeModel.Transportation3" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="IntakeModel.IsEmployed" class="control-label">${i} Employed:</label>
+                                <input asp-for="IntakeModel.IsEmployed" class="form-control" />
+                                <span asp-validation-for="IntakeModel.IsEmployed" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="IntakeModel.EmployedWhere" class="control-label">${i} Where Employed:</label>
+                                <input asp-for="IntakeModel.EmployedWhere" class="form-control" />
+                                <span asp-validation-for="IntakeModel.EmployedWhere" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="IntakeModel.EmployerPhone" class="control-label">${i} Employer Phone:</label>
+                                <input asp-for="IntakeModel.EmployerPhone" class="form-control" />
+                                <span asp-validation-for="IntakeModel.EmployerPhone" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="IntakeModel.JobDescription" class="control-label">${i} Job Description:</label>
+                                <input asp-for="IntakeModel.JobDescription" class="form-control" />
+                                <span asp-validation-for="IntakeModel.JobDescription" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="IntakeModel.Unemployed" class="control-label">${i} Unemployed:</label>
+                                <input asp-for="IntakeModel.Unemployed" class="form-control" />
+                                <span asp-validation-for="IntakeModel.Unemployed" class="text-danger"></span>
+                            </div>
+                            <div class="form-group Adult Questions">
+                                <label asp-for="IntakeModel.Fired" class="control-label">${i} Fired:</label>
+                                @Html.DropDownListFor(model => model.IntakeModel.Fired,
+                                                    new SelectList(Enum.GetValues(typeof(Models.Fired))),
+                                                    "Select",
+                                                    new { @class = "form-select", id = "FiredDropdown" })
+                                <span asp-validation-for="IntakeModel.Fired" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="IntakeModel.LengthOfEmploy" class="control-label">${i} Employment Length:</label>
+                                <input asp-for="IntakeModel.LengthOfEmploy" class="form-control" />
+                                <span asp-validation-for="IntakeModel.LengthOfEmploy" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="IntakeModel.Skills" class="control-label">${i} Skills:</label>
+                                <input asp-for="IntakeModel.Skills" class="form-control" />
+                                <span asp-validation-for="IntakeModel.Skills" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="IntakeModel.Income" class="control-label">${i} Income:</label>
+                                <input asp-for="IntakeModel.Income" class="form-control" />
+                                <span asp-validation-for="IntakeModel.Income" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="IntakeModel.Arrest" class="control-label">${i} Arrest:</label>
+                                <input asp-for="IntakeModel.Arrest" class="form-control" />
+                                <span asp-validation-for="IntakeModel.Arrest" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="IntakeModel.ArrestLoc" class="control-label">${i} Arrest Location:</label>
+                                <input asp-for="IntakeModel.ArrestLoc" class="form-control" />
+                                <span asp-validation-for="IntakeModel.ArrestLoc" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="IntakeModel.Convictions" class="control-label">${i} Convictions:</label>
+                                <input asp-for="IntakeModel.Convictions" class="form-control" />
+                                <span asp-validation-for="IntakeModel.Convictions" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="IntakeModel.Parole" class="control-label">${i} Parole:</label>
+                                <input asp-for="IntakeModel.Parole" class="form-control" />
+                                <span asp-validation-for="IntakeModel.Parole" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="IntakeModel.ParolePhone" class="control-label">${i} Parole Phone:</label>
+                                <input asp-for="IntakeModel.ParolePhone" class="form-control" />
+                                <span asp-validation-for="IntakeModel.ParolePhone" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="IntakeModel.ParoleEmail" class="control-label">${i} Parole Email:</label>
+                                <input asp-for="IntakeModel.ParoleEmail" class="form-control" />
+                                <span asp-validation-for="IntakeModel.ParoleEmail" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="IntakeModel.SubstanceAbuse" class="control-label">${i} Substance Abuse:</label>
+                                <input asp-for="IntakeModel.SubstanceAbuse" class="form-control" />
+                                <span asp-validation-for="IntakeModel.SubstanceAbuse" class="text-danger"></span>
+                            </div>
+                            <div class="form-group AdultQuestions">
+                                <label asp-for="IntakeModel.FatherChild" class="control-label">${i} Father Child:</label>
+                                <input asp-for="IntakeModel.FatherChild" class="form-control" />
+                                <span asp-validation-for="IntakeModel.FatherChild" class="text-danger"></span>
+                            </div>`;
+                        console.log("I " +i);
+                        console.log("Number of Adults " +AdultNumber);
+                        document.getElementById('additionalAdults').insertAdjacentHTML('beforeend', sectionHtml);
+                    }
                 }
-            }
-            $('#houseHoldNumber input').on('input', function () {
-                var enteredNum = parseInt($(this).val(), 10) || 1;
-                console.log("Entered Number: " + enteredNum);
-                generateAdults(enteredNum);
-            });
-            generateAdults(document.querySelector('#houseHoldNumber input').value);
+                $('#houseHoldNumber input').on('input', function () {
+                    var enteredNum = parseInt($(this).val(), 10) || 1;
+                    console.log("Entered Number: " + enteredNum);
+                    generateAdults(enteredNum);
+                });
+                generateAdults(document.querySelector('#houseHoldNumber input').value);
                 
             </script>
             

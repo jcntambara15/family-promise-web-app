@@ -6,15 +6,6 @@ using FamilyPromiseApp.Data;
 
 namespace FamilyPromiseApp.Models
 {
-    
-    public enum WorkStudy
-    {
-        Yes, No
-    }
-    public enum Transportation
-    {
-        Yes, No
-    }
     public enum Bankruptcy
     {
         Yes, No
@@ -151,7 +142,7 @@ namespace FamilyPromiseApp.Models
 
         public int Transportation1 { get; set; }
 
-        [Display(Name = "What is/are the make/model/year(s)?")]
+        [Display(Name = "Do you have any forms of transportation? If so, What is/are the make/model/year(s)?")]
         public string Transportation2 { get; set; }
 
         [Display(Name = "What is/are the license plate(s)?")]
@@ -209,9 +200,6 @@ namespace FamilyPromiseApp.Models
         
         [Display(Name = "Are there any additional adults in the household?")]
         public AnyHouseHold? HouseHoldMemberExists { get; set; }
-
-        [Display(Name = "Do you own any forms of transportation? ")]
-        public Transportation? Transportation { get; set; }
 
         [Display(Name = "Name")]
         public string AdultName { get; set; }
