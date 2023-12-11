@@ -7,11 +7,11 @@ using FamilyPromiseApp.Data;
 namespace FamilyPromiseApp.Models
 {
     
-    public enum AdultNum
+    public enum WorkStudy
     {
         Yes, No
     }
-    public enum WorkStudy
+    public enum Fired
     {
         Yes, No
     }
@@ -46,12 +46,8 @@ namespace FamilyPromiseApp.Models
         [Display(Name = "Do you live alone with chidren or the father of your children? If so, explain.")]
         public string FatherChild { get; set; }
 
-
-        [Display(Name = "Gender Identity?")]
+        [Display(Name = "Gender Identity")]
         public string Gender { get; set; }
-
-
-
 
         [Display(Name = "Referral taken by:")]
         public string TakenByNow { get; set; }
@@ -69,7 +65,7 @@ namespace FamilyPromiseApp.Models
         [Display(Name = "Referring Agency / Source:")]
         public string ReferralAgency { get; set;}
         [Display(Name = "What is their phone number?")]
-        public string EmployerPhone { get; set;}
+        public int EmployerPhone { get; set;}
 
         [Display(Name = "What is the job description? Are you full-time / part-time / day laborer / temp?")]
         public string JobDescription { get; set;}
@@ -78,7 +74,8 @@ namespace FamilyPromiseApp.Models
         public string Unemployed { get; set;}
 
         [Display(Name = "Have you ever been terminated from a job?")]
-        public string Fired { get; set;}
+
+        public Fired? Fired { get; set; }
 
         [Display(Name = "What is your longest length of employment?")]
         public string LengthOfEmploy { get; set;}
@@ -98,7 +95,7 @@ namespace FamilyPromiseApp.Models
         public string Parole { get; set;}
 
         [Display(Name = "What is their phone number?")]
-        public string ParolePhone { get; set;}
+        public int ParolePhone { get; set;}
 
         [Display(Name = "What is their email?")]
         public string ParoleEmail { get; set;}
@@ -125,7 +122,7 @@ namespace FamilyPromiseApp.Models
         public string WorkStudy { get; set; }
 
         [Display(Name = "How many adults?")]
-        public string AdultNum { get; set; }
+        public int AdultNum { get; set; }
 
         
         [Display(Name = "SSN")]
@@ -148,11 +145,8 @@ namespace FamilyPromiseApp.Models
 
         [Display(Name = "Do you own any methods of transportation? If so, how many? What is the make/model/year? What is/are the license plate(s)?")]
         public string Transportation { get; set; }
-
-        
-
         public string FirstName { get; set; }
-        // [Column("First Name")]
+        [Column("First Name")]
         [Display(Name = "First Name")]
 
         public string FirstMidName { get; set; }
@@ -192,10 +186,10 @@ namespace FamilyPromiseApp.Models
         public DateTime DOB { get; set; }
         
         [Display(Name = "Cell Number")]
-        public string CellPhoneNum { get; set; }
+        public int CellPhoneNum { get; set; }
 
         [Display(Name = "Work Number")]
-        public string WorkPhoneNum { get; set; }
+        public int WorkPhoneNum { get; set; }
 
         [Display(Name = "Email Address")]
         public string EmailAdd { get; set;}
