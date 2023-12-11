@@ -161,12 +161,17 @@ namespace FamilyPromiseApp.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         
+
+        [Display(Name = "Are you or have you ever been involved in the Department for Children and Families (DCF)? Explain. ")]
+        public string DCF { get; set; }
         
         [Display(Name = "Date Admitted")]
         public int DateAdmitted { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         
+
+
         
         [Display(Name = "Completion Date")]
         public int CompletionDate { get; set; }
@@ -188,6 +193,9 @@ namespace FamilyPromiseApp.Models
 
         [Display(Name = "Address")]
         public string HomeAddress { get; set;}
+
+        [Display(Name = "Do you or have you ever had substance abuse? If so, what substance? Have you received treatment or do you plan to? Are you clean/dry now?")]
+        public string SubstanceAbuse { get; set;}
         
         [Display(Name = "Are there any additional adults in the household?")]
         public AnyHouseHold? HouseHoldMemberExists { get; set; }
@@ -195,8 +203,14 @@ namespace FamilyPromiseApp.Models
         [Display(Name = "Name")]
         public string AdultName { get; set; }
 
+        [Display(Name = "Assets (Total Amount). Include cars, savings, checking, real estate, and vehicles.")]
+        public int Assets { get; set; }
+
         [Display(Name = "Age")]
         public int AdultAge { get; set; }
+
+        [Display(Name = "Debts (Total Amount) List type and amount.")]
+        public int Debts { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
