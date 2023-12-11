@@ -37,7 +37,7 @@ namespace FamilyPromiseApp.Models
         [Display(Name = "Have you ever lived in a shelter before?")]
         public string ShelterBefore { get; set; }
 
-        [Display(Name = "Income source: state the amount and if you are currently receiving, applied for, or received in past employment: TANF, social security, SSI/SSDI, unemployment benefits, Workers comp, Veterans benefits, Food stamps, Child support, Vocational rehab, Health department, Medicaid, Child care, Public housing, Employment assistance, Child support-CSE, child support- direct, Mental health services, CHANPUS, other")]
+        [Display(Name = "Income source: state the amount and if you are currently receiving, applied for, or received in past employment: TANF, Social Security, SSI/SSDI, Unemployment Benefits, Workers Compensation, Veterans Benefits, Food Stamps, Child Support, Vocational Rehab, Health Department, Medicaid, Child care, Public housing, Employment Assistance, Child Support-CSE, Child Support- Direct, Mental Health Services, CHANPUS, other")]
         public string Income { get; set; }
         [Display(Name = "Do you live alone with chidren or the father of your children? If so, explain.")]
         public string FatherChild { get; set; }
@@ -82,13 +82,13 @@ namespace FamilyPromiseApp.Models
         [Display(Name = "What skills do you have?")]
         public string Skills { get; set;}
 
-        [Display(Name = "Have you ever been arrested? If so, what were/are your charges? Are any still pending? On what day(s)?")]
+        [Display(Name = "Have you ever been arrested? If so, what were your charges? Are any still pending? On what day were you charged?")]
         public string Arrest { get; set;}
 
         [Display(Name = "Where were you arrested?")]
         public string ArrestLoc { get; set;}
 
-        [Display(Name = "Do you have any convictions? On what day(s)?")]
+        [Display(Name = "Do you have any convictions? On what day were you convicted??")]
         public string Convictions { get; set;}
         [Display(Name = "Who is your parole officer?")]
         public string Parole { get; set;}
@@ -111,7 +111,7 @@ namespace FamilyPromiseApp.Models
         public string IsEmployed { get; set; }
 
         [Display(Name = "Monthly Rent, if applicable.")]
-        public string IsHoused { get; set; }
+        public int IsHoused { get; set; }
 
         [Display(Name = "Relationship")]
         public string Relationships { get; set; }
@@ -128,10 +128,10 @@ namespace FamilyPromiseApp.Models
         public int SSN { get; set; }
 
         [Display(Name = "What is your main reason for being homeless? Eviction, Kicked Out, Diasaster, Moved, Other")]
-        public int Reason { get; set; }
+        public string Reason { get; set; }
 
         [Display(Name = "What is your secondary reason for being homeless? Lost Job, Family Dissolution (Death, Divorce, etc.), Benefits Stopped, Medical Problems, Other")]
-        public int Reason2 { get; set; }
+        public string Reason2 { get; set; }
 
         [Display(Name = "ID Number")]
         public int IDNum { get; set; }
@@ -146,14 +146,14 @@ namespace FamilyPromiseApp.Models
         public string Transportation { get; set; }
 
         public string FirstName { get; set; }
-        [Column("FirstName")]
+        [Column("First Name")]
         [Display(Name = "First Name")]
 
         public string FirstMidName { get; set; }
         [Display(Name = "Marital Status- if so, where are they located?")]
         public string MaritalStatus { get; set; }
 
-        [Display(Name = "Do any children school? If so, where and what grade?")]
+        [Display(Name = "Are any children in school? If so, where and what grade?")]
         public string ChildSchool { get; set; }
 
         [Display(Name = "Age")]
