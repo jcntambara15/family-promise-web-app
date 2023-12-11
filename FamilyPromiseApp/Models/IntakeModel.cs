@@ -243,7 +243,7 @@ namespace FamilyPromiseApp.Models
         [Display(Name = "What type of housing were you living in?")]
         public HouseType? HouseType { get; set; }
 
-        [Display(Name = "Number of children in household")]
+        [Display(Name = "Number of children in household?")]
         public int ChildNum { get; set; }
 
         [Display(Name = "Name")]

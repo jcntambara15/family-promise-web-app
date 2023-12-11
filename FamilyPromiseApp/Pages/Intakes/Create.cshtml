@@ -17,11 +17,6 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="IntakeModel.AdultNum" class="control-label"></label>
-                <input asp-for="IntakeModel.AdultNum" class="form-control" />
-                <span asp-validation-for="IntakeModel.AdultNum" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="IntakeModel.DateAdmitted" class="control-label"></label>
                 <input asp-for="IntakeModel.DateAdmitted" class="form-control" />
                 <span asp-validation-for="IntakeModel.DateAdmitted" class="text-danger"></span>
@@ -38,6 +33,11 @@
             </div>
             <h4>Adults</h4>
             <hr />
+            <div class="form-group">
+                <label asp-for="IntakeModel.AdultNum" class="control-label"></label>
+                <input asp-for="IntakeModel.AdultNum" class="form-control" />
+                <span asp-validation-for="IntakeModel.AdultNum" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="IntakeModel.LastName" class="control-label"></label>
                 <input asp-for="IntakeModel.LastName" class="form-control" />
@@ -111,6 +111,11 @@
                 <label asp-for="IntakeModel.Race" class="control-label"></label>
                 <input asp-for="IntakeModel.Race" class="form-control" />
                 <span asp-validation-for="IntakeModel.Race" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntakeModel.ChildNum" class="control-label"></label>
+                <input asp-for="IntakeModel.ChildNum" class="form-control" />
+                <span asp-validation-for="IntakeModel.ChildNum" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="IntakeModel.ChildSchool" class="control-label"></label>
