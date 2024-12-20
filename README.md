@@ -4,4 +4,4 @@ This project aimed at helping an NGO - Family Promise of Pulaski County - better
 
 ## Accessing the site
 
-[Click here](https://familypromisepulaskicounty.azurewebsites.net/) to access the site.
+The site is private to the NGO
